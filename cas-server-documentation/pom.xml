@@ -58,7 +58,7 @@
               <goal>generate-html</goal>
             </goals>
             <configuration>
-              <chunkedOutput>yes</chunkedOutput>
+              <!--<chunkedOutput>yes</chunkedOutput>-->
               <chunkerOutputIndent>yes</chunkerOutputIndent>
               <customizationParameters>
                 <parameter>
