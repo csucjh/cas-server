@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="queryDatabaseAuthenticationHandler"
+          class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler">
+        <property name="sql" value="select password from user where isdel = 0 and username = ?"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- 数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="url">
+            <value><![CDATA[jdbc:mysql://localhost:3306/csucjh?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull]]></value>
+        </property>
+        <property name="username" value="huaxing" />
+        <property name="password" value="njgTTnptburpPhRb" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    </bean>
+</beans>

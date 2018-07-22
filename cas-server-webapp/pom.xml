@@ -29,6 +29,10 @@
   <packaging>war</packaging>
   <name>JA-SIG CAS Web Application</name>
   <dependencies>
+    <dependency>
+      <groupId>org.jasig.cas</groupId>
+      <artifactId>cas-server-support-jdbc</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.mockito</groupId>
@@ -141,21 +145,10 @@
 
   <build>
     <plugins>
-      <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-compiler-plugin</artifactId>-->
-        <!--<version>3.7.0</version>-->
-        <!--<configuration>-->
-          <!--<source>${java.version}</source>-->
-          <!--<target>${java.version}</target>-->
-          <!--<encoding>${project.encoding}</encoding>-->
-        <!--</configuration>-->
-      <!--</plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <warName>cas</warName>
           <webResources>
             <resource>
               <directory>${basedir}/src/main/webapp/WEB-INF</directory>
@@ -170,9 +163,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <properties>
-    <java.version>1.6</java.version>
-    <project.encoding>UTF-8</project.encoding>
-  </properties>
 </project>
